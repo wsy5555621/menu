@@ -8,7 +8,7 @@
 /*  LANGUAGE              :  C                                                                    */
 /*  TARGET ENVIRONMENT    :  ANY                                                                  */
 /*  DATE OF FIRST RELEASE :  2014/09/11                                                           */
-/*  DESCRIPTION           :  This is a menu program                                               */
+/*  DESCRIPTION           :  This is a menu program!                                              */
 /**************************************************************************************************/
 
 /*
@@ -47,10 +47,10 @@ main()
     /* cmd line begins */
     while(1)
     {
-   	    char cmd[10];
-   	    printf("Input a cmd  > ");
-   	    scanf("%s",&cmd);
-   	    Iscmdexist(cmd);
+        char cmd[10];
+   	printf("Input a cmd  > ");
+   	scanf("%s",&cmd);
+   	Iscmdexist(cmd);
     } 	
     
 	  
@@ -59,21 +59,21 @@ main()
  /* Init cmd list */
  void Init()
  {
- 	int i;
+    int i;
     for(i=0;i<CMD_NUM;i++)
     {
-   	    p=(tDataNode*)malloc(sizeof(tDataNode));
-   	    snprintf(p->cmd, 10, "%s", a[i]);
-   	    snprintf(p->desc,DESC_LEN,"This is the no.%d cmd!",i);
-   	    p->next=head;
-   	    head=p;
+        p=(tDataNode*)malloc(sizeof(tDataNode));
+   	snprintf(p->cmd, 10, "%s", a[i]);
+   	snprintf(p->desc,DESC_LEN,"This is the no.%d cmd!",i);
+   	p->next=head;
+   	head=p;
     }
     printf("Menu List:\n");
     p=head;
     while(p!=NULL)
     {
-   	    printf("%s - %s\n",p->cmd,p->desc);
-   	    p=p->next;
+   	printf("%s - %s\n",p->cmd,p->desc);
+   	p=p->next;
     }
  }
   void Iscmdexist(char cmd[10])
@@ -82,15 +82,15 @@ main()
   	p=head;
   	while(p!=NULL)
   	{
-		if(strcmp(p->cmd,cmd)==0)
-  		{
-			printf("%s - %s\n",p->cmd,p->desc);
-			break;
-   		}
-     	p=p->next;
-   		if(!p)
+	    if(strcmp(p->cmd,cmd)==0)
+  	    {
+  	        printf("%s - %s\n",p->cmd,p->desc);
+		break;
+   	    }
+     	    p=p->next;
+   	    if(!p)
    	    {
-    		printf("This is a wrong cmd!\n");  	
+    	        printf("This is a wrong cmd!\n");  	
  	    }
   	}
    	    
