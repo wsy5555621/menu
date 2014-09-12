@@ -23,13 +23,13 @@
  #include<string.h>
  
  #define DESC_LEN    1024
- #define CMD_NUM	 10
+ #define CMD_NUM       10
  
  typedef struct DataNode
  {
-     char   cmd[10];
-	 char   desc[DESC_LEN];
-	 struct DataNode *next;	 
+    char   cmd[10];
+    char   desc[DESC_LEN];
+    struct DataNode *next;	 
  }tDataNode;
  
  void Init();
