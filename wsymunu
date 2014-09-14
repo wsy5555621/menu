@@ -24,6 +24,7 @@
  
  #define DESC_LEN    1024
  #define CMD_NUM       10
+ #define CMD_LEN       10
  
  typedef struct DataNode
  {
@@ -33,7 +34,7 @@
  }tDataNode;
  
  void Init();
- void Iscmdexist(char cmd[10]);
+ void Iscmdexist(char cmd[CMD_LEN]);
  
  char *a[CMD_NUM]={"open","shutdown","delete","end","pgup","pgdown","ctrl","shift","tab",
  "capture"};
@@ -47,7 +48,7 @@ main()
     /* cmd line begins */
     while(1)
     {
-        char cmd[10];
+        char cmd[CMD_LEN];
    	printf("Input a cmd  > ");
    	scanf("%s",&cmd);
    	Iscmdexist(cmd);
@@ -76,7 +77,7 @@ main()
    	p=p->next;
     }
  }
-  void Iscmdexist(char cmd[10])
+  void Iscmdexist(char cmd[CMD_LEN])
   {
   	
   	p=head;
