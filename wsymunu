@@ -18,26 +18,26 @@
  *
  */
  
- #include<stdio.h>
- #include<stdlib.h>
- #include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
  
- #define DESC_LEN    1024
- #define CMD_NUM       10
- #define CMD_LEN       10
+#define DESC_LEN    1024
+#define CMD_NUM       10
+#define CMD_LEN       10
  
- typedef struct DataNode
- {
+typedef struct DataNode
+{
     char   cmd[10];
     char   desc[DESC_LEN];
     struct DataNode *next;	 
- }tDataNode;
+}tDataNode;
  
- void Init();
- void Iscmdexist(char cmd[CMD_LEN]);
+void Init();
+void Iscmdexist(char cmd[CMD_LEN]);
  
- char *a[CMD_NUM]={"open","shutdown","delete","end","pgup","pgdown","ctrl","shift","tab",
- "capture"};
+char *a[CMD_NUM]={"open","shutdown","delete","end","pgup","pgdown","ctrl","shift","tab",
+"capture"};
 	
 tDataNode *head=NULL;
 tDataNode *p=NULL;
@@ -49,25 +49,23 @@ main()
     while(1)
     {
         char cmd[CMD_LEN];
-   	printf("Input a cmd  > ");
+        printf("Input a cmd  > ");
    	scanf("%s",&cmd);
    	Iscmdexist(cmd);
     } 	
-    
-	  
- }
+}
  
- /* Init cmd list */
- void Init()
- {
+/* Init cmd list */
+void Init()
+{
     int i;
     for(i=0;i<CMD_NUM;i++)
     {
         p=(tDataNode*)malloc(sizeof(tDataNode));
-   	snprintf(p->cmd, 10, "%s", a[i]);
-   	snprintf(p->desc,DESC_LEN,"This is the no.%d cmd!",i);
-   	p->next=head;
-   	head=p;
+        snprintf(p->cmd, 10, "%s", a[i]);
+        snprintf(p->desc,DESC_LEN,"This is the no.%d cmd!",i);
+        p->next=head;
+        head=p;
     }
     printf("Menu List:\n");
     p=head;
@@ -77,22 +75,21 @@ main()
    	p=p->next;
     }
  }
-  void Iscmdexist(char cmd[CMD_LEN])
-  {
-  	
-  	p=head;
-  	while(p!=NULL)
-  	{
-	    if(strcmp(p->cmd,cmd)==0)
+  
+void Iscmdexist(char cmd[CMD_LEN])
+{
+    p=head;
+    while(p!=NULL)
+    {
+        if(strcmp(p->cmd,cmd)==0)
   	    {
   	        printf("%s - %s\n",p->cmd,p->desc);
 		break;
    	    }
-     	    p=p->next;
-   	    if(!p)
-   	    {
-    	        printf("This is a wrong cmd!\n");  	
- 	    }
-  	}
-   	    
-  }
+        p=p->next;
+   	if(!p)
+   	{
+    	    printf("This is a wrong cmd!\n");  	
+ 	}
+    }
+}
