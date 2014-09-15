@@ -23,8 +23,8 @@
 #include<string.h>
  
 #define DESC_LEN    1024
-#define CMD_NUM       10
-#define CMD_LEN       10
+#define CMD_NUM     10
+#define CMD_LEN     10
  
 typedef struct DataNode
 {
