@@ -101,8 +101,8 @@ void Showallcmd()
     p=head;
     while(p!=NULL)
     {
-   	    printf("%s - %s\n",p->cmd,p->desc);
-   	    p=p->next;
+   	printf("%s - %s\n",p->cmd,p->desc);
+   	p=p->next;
     }
 }
 
