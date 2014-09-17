@@ -35,9 +35,10 @@ typedef struct DataNode
  
 void Init();
 void Iscmdexist(char cmd[CMD_LEN]);
+void Showallcmd();
  
 char *a[CMD_NUM]={"open","shutdown","delete","end","pgup","pgdown","ctrl","shift","tab",
-"capture"};
+"help"};
 	
 tDataNode *head=NULL;
 tDataNode *p=NULL;
@@ -51,7 +52,14 @@ main()
         char cmd[CMD_LEN];
         printf("Input a cmd  > ");
    	scanf("%s",&cmd);
-   	Iscmdexist(cmd);
+   	if(strcmp("help",cmd)==0)
+   	{
+            Showallcmd(); 
+        }
+    	else    
+        {    
+            Iscmdexist(cmd);
+        }
     } 	
 }
  
@@ -66,13 +74,6 @@ void Init()
         snprintf(p->desc,DESC_LEN,"This is the no.%d cmd!",i);
         p->next=head;
         head=p;
-    }
-    printf("Menu List:\n");
-    p=head;
-    while(p!=NULL)
-    {
-   	printf("%s - %s\n",p->cmd,p->desc);
-   	p=p->next;
     }
 }
   
@@ -91,6 +92,17 @@ void Iscmdexist(char cmd[CMD_LEN])
    	{
     	    printf("This is a wrong cmd!\n");  	
  	}
+    }
+}
+
+void Showallcmd()
+{
+    printf("Menu List:\n");
+    p=head;
+    while(p!=NULL)
+    {
+   	    printf("%s - %s\n",p->cmd,p->desc);
+   	    p=p->next;
     }
 }
 
