@@ -51,7 +51,7 @@ main()
     {
         char cmd[CMD_LEN];
         printf("Input a cmd  > ");
-        scanf("%s",&cmd);
+        scanf("%s",cmd);
         if(strcmp("help",cmd)==0)
         {
             Showallcmd(); 
